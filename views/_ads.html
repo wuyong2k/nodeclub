@@ -1,0 +1,67 @@
+<%
+  var ads = [
+    {
+      href: 'http://alinode.aliyun.com/',
+      label: 'alinode',
+      img_src: '//dn-cnode.qbox.me/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_',
+    },
+    {
+      href: 'https://www.jpush.cn/',
+      label: 'jpush',
+      img_src: '//dn-cnode.qbox.me/FoLV2eugW31RqeDu_4CWQk0kqhHf',
+    },
+    {
+      href: 'https://talk.ai/?s=cnodejs',
+      label: 'teambition',
+      img_src: '//dn-cnode.qbox.me/FsJ2QW9zAHLvrPgC767PvuMWBkRQ',
+    },
+    {
+      href: 'https://cnodejs.org/topic/55a77e2f93ce02cd25985916',
+      label: 'guangyin',
+      img_src: '//dn-cnode.qbox.me/FphIGf6l1QKaEzhnlLHvw49GIv_P',
+    },
+    {
+      href: 'https://cnodejs.org/topic/56a2d2bc8dcd3e8262337082',
+      label: 'tingyun',
+      img_src: '//dn-cnode.qbox.me/FmVIeZiTSI5TDIYbR8NuSge7oUId',
+    },
+    {
+      href: 'http://www.huoban.com/?ad=a_cnodejs',
+      label: 'huoban',
+      img_src: '//dn-cnode.qbox.me/FqFrhjumqkUga_aXhpQZrR2-aqcN',
+    },
+    {
+      href: 'http://100offer.com/join/cnode71?utm_source=cnode71&utm_medium=dis&utm_campaign=cnode71',
+      label: '100offer',
+      img_src: '//dn-cnode.qbox.me/FojExpHUPJ_1iG7qDOJvnRQ7RmnX',
+    },
+    {
+      href: 'http://shixian.com/consultants?city=beijing&sort_arrow=down&territory=frontend&f=cnodejs_adbanner',
+      label: 'shixian',
+      img_src: '//dn-cnode.qbox.me/FpNAZLzfI3ZQVZb-gp1LyWkOtkMK',
+    },
+    {
+      href: 'https://www.wilddog.com/?utm_source=cnodejs.org&utm_medium=banner&utm_campaign=orangemarch',
+      label: 'wilddog',
+      img_src: '//dn-cnode.qbox.me/FmCWuxIKbZIii6795kpXAKGSGNN8',
+    }
+  ];
+
+    var randomNum = (new Date()).getMinutes() % ads.length;
+
+    ads = ads.slice(randomNum).concat(ads.slice(0, randomNum));
+%>
+<div class='panel'>
+  <div class='inner ads'>
+
+    <% ads.forEach(function (adObj, idx) { %>
+      <% if (idx !== 0) { %>
+        <div class="sep10"></div>
+      <% } %>
+      <a href="<%-adObj.href%>" target="_blank" class="banner sponsor_outlink"
+    data-label="<%=adObj.label%>">
+        <img src="<%- staticFile(adObj.img_src) %>">
+      </a>
+    <% }) %>
+  </div>
+</div>
